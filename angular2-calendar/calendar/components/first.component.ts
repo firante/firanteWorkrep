@@ -41,7 +41,7 @@ import { Router, AuxRoute } from 'angular2/router';
 ])
 
 export class FirstComponent implements OnInit {
-currDate : CurrentDate = {date: "", month: "", year: ""};
+currDate : CurrentDate = {date: 0, month: 0, year: 0};
 constructor(
     private _router: Router,
     private _dateService: DateService

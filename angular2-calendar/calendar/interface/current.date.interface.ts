@@ -1,5 +1,5 @@
 export interface CurrentDate {
-  date: string;
-  month: string;
-  year: string;
+  date: number;
+  month: number;
+  year: number;
 }

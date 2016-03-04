@@ -19,7 +19,7 @@ export class DaysInMonth implements OnInit {
       private _dateService: DateService
   ) {}
 
-  currDate : CurrentDate = {date: "", month: "", year: ""};
+  currDate : CurrentDate = {date: 0, month: 0, year: 0};
   daysInMonth : DayInterface[][] = [
                                       [{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null}],
                                       [{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null}],
@@ -63,7 +63,6 @@ export class DaysInMonth implements OnInit {
   }
 
   openMonth () {
-    this._dateService.changeCurrDate(this.currDate);
     this._router.navigateByUrl('/(months)');
   }
 

@@ -5,17 +5,19 @@ import {CurrentDate} from '../interface/current.date.interface';
 
 export class DateService {
 
-  currDate: CurrentDate = {date: "", month: "", year: ""};
+  currDate: CurrentDate = {date: 0, month: 0, year: 0};
 
   getCurrentDate() {
-      let date = new Date();
-      this.setDateToCurrDate(date);
+      if (this.currDate.date === 0 && this.currDate.month === 0 &&  this.currDate.year === 0) {
+        let date = new Date();
+        this.setDateToCurrDate(date);
+      }
       return Promise.resolve(this.currDate);
   }
 
   setDateToCurrDate(date) {
     this.currDate.date = date.getDate();
-    this.currDate.month = date.getMonth();
+    this.currDate.month = +date.getMonth()+1;
     this.currDate.year = date.getFullYear();
   }
 

@@ -17,7 +17,7 @@ export class MonthInYear implements OnInit  {
       private _dateService: DateService
   ) {}
 
-  currDate : CurrentDate = {date: "", month: "", year: ""};
+  currDate : CurrentDate = {date: 0, month: 0, year: 0};
 
   ngOnInit () {
       this._dateService.getCurrentDate().then(dat => this.currDate = dat);
@@ -27,7 +27,7 @@ export class MonthInYear implements OnInit  {
     this._router.navigateByUrl('/(years)');
   }
 
-  chandeMonth(month) {
+  changeMonth(month) {
     this.currDate.month = month;
   }
 }

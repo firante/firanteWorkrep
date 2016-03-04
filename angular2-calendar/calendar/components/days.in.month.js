@@ -29,7 +29,7 @@ System.register(['angular2/core', '../servises/date.service', 'angular2/router',
                 function DaysInMonth(_router, _dateService) {
                     this._router = _router;
                     this._dateService = _dateService;
-                    this.currDate = { date: "", month: "", year: "" };
+                    this.currDate = { date: 0, month: 0, year: 0 };
                     this.daysInMonth = [
                         [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }],
                         [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }],
@@ -73,7 +73,6 @@ System.register(['angular2/core', '../servises/date.service', 'angular2/router',
                     }
                 };
                 DaysInMonth.prototype.openMonth = function () {
-                    this._dateService.changeCurrDate(this.currDate);
                     this._router.navigateByUrl('/(months)');
                 };
                 DaysInMonth.prototype.chandeDate = function (date) {

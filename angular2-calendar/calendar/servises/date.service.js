@@ -18,16 +18,18 @@ System.register(['angular2/core'], function(exports_1) {
         execute: function() {
             DateService = (function () {
                 function DateService() {
-                    this.currDate = { date: "", month: "", year: "" };
+                    this.currDate = { date: 0, month: 0, year: 0 };
                 }
                 DateService.prototype.getCurrentDate = function () {
-                    var date = new Date();
-                    this.setDateToCurrDate(date);
+                    if (this.currDate.date === 0 && this.currDate.month === 0 && this.currDate.year === 0) {
+                        var date = new Date();
+                        this.setDateToCurrDate(date);
+                    }
                     return Promise.resolve(this.currDate);
                 };
                 DateService.prototype.setDateToCurrDate = function (date) {
                     this.currDate.date = date.getDate();
-                    this.currDate.month = date.getMonth();
+                    this.currDate.month = +date.getMonth() + 1;
                     this.currDate.year = date.getFullYear();
                 };
                 DateService.prototype.changeCurrDate = function (curr) {
