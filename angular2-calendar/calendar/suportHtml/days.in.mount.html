@@ -1,0 +1,13 @@
+<div class='block'>
+  <div class='row'
+    *ngFor='#week of daysInMonth'>
+    <div
+      class='collumn'
+      *ngFor='#days of week'>
+        <span #day name='day' class='mid' (click)="chandeDate(day.innerText)">
+          {{days.day}}
+        </span>
+    </div>
+  </div>
+</div>
+<div class='days' (click)='openMonth()'> Months </div>
