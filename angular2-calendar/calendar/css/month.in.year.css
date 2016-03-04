@@ -21,7 +21,7 @@ div.collumn:hover {
   background: rgba(0, 255, 0, 0.5);
 }
 
-div. textDiv {
+span {
   display: table-cell;;
   vertical-align: middle;
 }

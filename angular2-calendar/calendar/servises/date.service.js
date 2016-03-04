@@ -18,10 +18,10 @@ System.register(['angular2/core'], function(exports_1) {
         execute: function() {
             DateService = (function () {
                 function DateService() {
-                    this.currDate = { date: "", month: "", year: "" };
+                    this.currDate = { date: 0, month: 0, year: 0 };
                 }
                 DateService.prototype.getCurrentDate = function () {
-                    if (this.currDate.date === "" && this.currDate.month === "" && this.currDate.year === "") {
+                    if (this.currDate.date === 0 && this.currDate.month === 0 && this.currDate.year === 0) {
                         var date = new Date();
                         this.setDateToCurrDate(date);
                     }

@@ -27,6 +27,7 @@ System.register(['angular2/core', 'angular2/router', '../servises/date.service']
                     this._router = _router;
                     this._dateService = _dateService;
                     this.years = [];
+                    this.currDate = { date: 0, month: 0, year: 0 };
                 }
                 Years.prototype.ngOnInit = function () {
                     var _this = this;
@@ -35,6 +36,10 @@ System.register(['angular2/core', 'angular2/router', '../servises/date.service']
                             _this.years.push(+dat.year - 12 + i);
                         }
                     });
+                    this._dateService.getCurrentDate().then(function (dat) { return _this.currDate = dat; });
+                };
+                Years.prototype.changeYear = function (year) {
+                    this.currDate.year = +year;
                 };
                 Years = __decorate([
                     core_1.Component({

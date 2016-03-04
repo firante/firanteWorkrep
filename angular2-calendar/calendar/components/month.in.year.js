@@ -26,7 +26,7 @@ System.register(['angular2/core', 'angular2/router', '../servises/date.service']
                 function MonthInYear(_router, _dateService) {
                     this._router = _router;
                     this._dateService = _dateService;
-                    this.currDate = { date: "", month: "", year: "" };
+                    this.currDate = { date: 0, month: 0, year: 0 };
                 }
                 MonthInYear.prototype.ngOnInit = function () {
                     var _this = this;
@@ -35,7 +35,7 @@ System.register(['angular2/core', 'angular2/router', '../servises/date.service']
                 MonthInYear.prototype.openYears = function () {
                     this._router.navigateByUrl('/(years)');
                 };
-                MonthInYear.prototype.chandeMonth = function (month) {
+                MonthInYear.prototype.changeMonth = function (month) {
                     this.currDate.month = month;
                 };
                 MonthInYear = __decorate([

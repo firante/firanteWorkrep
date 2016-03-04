@@ -5,10 +5,10 @@ import {CurrentDate} from '../interface/current.date.interface';
 
 export class DateService {
 
-  currDate: CurrentDate = {date: "", month: "", year: ""};
+  currDate: CurrentDate = {date: 0, month: 0, year: 0};
 
   getCurrentDate() {
-      if (this.currDate.date === "" && this.currDate.month === "" &&  this.currDate.year === "") {
+      if (this.currDate.date === 0 && this.currDate.month === 0 &&  this.currDate.year === 0) {
         let date = new Date();
         this.setDateToCurrDate(date);
       }
