@@ -40,7 +40,7 @@ System.register(['angular2/core', './days.in.month', './month.in.year', './years
                 }
                 FirstComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    this._dateService.getThisDate().then(function (dat) { return _this.currDate = dat; });
+                    this._dateService.getCurrentDate().then(function (dat) { return _this.currDate = dat; });
                 };
                 FirstComponent.prototype.openCall = function () {
                     this._router.navigateByUrl('/(days)');

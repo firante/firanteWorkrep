@@ -48,7 +48,7 @@ constructor(
   ) {}
 
   ngOnInit () {
-    this._dateService.getThisDate().then(dat => this.currDate = dat);
+    this._dateService.getCurrentDate().then(dat => this.currDate = dat);
   }
 
   openCall() {
