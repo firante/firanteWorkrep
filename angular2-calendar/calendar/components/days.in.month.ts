@@ -69,5 +69,6 @@ export class DaysInMonth implements OnInit {
 
   chandeDate(date) {
     this.currDate.date = date;
+    this._dateService.changeCurrDate(this.currDate);
   }
 }

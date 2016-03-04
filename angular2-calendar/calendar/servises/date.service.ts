@@ -7,9 +7,13 @@ export class DateService {
 
   currDate: CurrentDate = {date: "", month: "", year: ""};
 
-  getCurrentDate() {
+  getThisDate() {
       let date = new Date();
       this.setDateToCurrDate(date);
+      return Promise.resolve(this.currDate);
+  }
+
+  getCurrentDate() {
       return Promise.resolve(this.currDate);
   }
 

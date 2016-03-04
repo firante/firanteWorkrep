@@ -78,6 +78,7 @@ System.register(['angular2/core', '../servises/date.service', 'angular2/router',
                 };
                 DaysInMonth.prototype.chandeDate = function (date) {
                     this.currDate.date = date;
+                    this._dateService.changeCurrDate(this.currDate);
                 };
                 DaysInMonth = __decorate([
                     core_1.Component({
