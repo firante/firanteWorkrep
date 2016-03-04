@@ -10,7 +10,7 @@ import { DateService } from '../servises/date.service';
   styleUrls: ['calendar/css/years.css'],
   directives: []
 })
-Р
+
 export class Years implements OnInit {
   constructor (
     private _router: Router,

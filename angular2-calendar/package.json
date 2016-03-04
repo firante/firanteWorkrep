@@ -16,8 +16,7 @@
     "es6-shim": "^0.33.3",
     "reflect-metadata": "0.1.2",
     "rxjs": "*",
-    "zone.js": "0.5.14",
-    "atom-space-pen-views": "^2.0.3"
+    "zone.js": "0.5.14"
   },
   "devDependencies": {
     "concurrently": "^1.0.0",
