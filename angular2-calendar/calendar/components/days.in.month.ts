@@ -63,11 +63,11 @@ export class DaysInMonth implements OnInit {
   }
 
   openMonth () {
-    this._dateService.changeCurrDate(this.currDate);
     this._router.navigateByUrl('/(months)');
   }
 
   chandeDate(date) {
     this.currDate.date = date;
+    this._dateService.changeCurrDate(this.currDate);
   }
 }

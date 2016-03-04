@@ -29,7 +29,7 @@ System.register(['angular2/core'], function(exports_1) {
                 };
                 DateService.prototype.setDateToCurrDate = function (date) {
                     this.currDate.date = date.getDate();
-                    this.currDate.month = date.getMonth();
+                    this.currDate.month = +date.getMonth() + 1;
                     this.currDate.year = date.getFullYear();
                 };
                 DateService.prototype.changeCurrDate = function (curr) {

@@ -8,17 +8,16 @@ export class DateService {
   currDate: CurrentDate = {date: "", month: "", year: ""};
 
   getCurrentDate() {
-
       if (this.currDate.date === "" && this.currDate.month === "" &&  this.currDate.year === "") {
         let date = new Date();
         this.setDateToCurrDate(date);
-      } 
+      }
       return Promise.resolve(this.currDate);
   }
 
   setDateToCurrDate(date) {
     this.currDate.date = date.getDate();
-    this.currDate.month = date.getMonth();
+    this.currDate.month = +date.getMonth()+1;
     this.currDate.year = date.getFullYear();
   }
 
