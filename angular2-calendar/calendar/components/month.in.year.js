@@ -29,8 +29,7 @@ System.register(['angular2/core', 'angular2/router', '../servises/date.service']
                     this.currDate = { date: 0, month: 0, year: 0 };
                 }
                 MonthInYear.prototype.ngOnInit = function () {
-                    var _this = this;
-                    this._dateService.getCurrentDate().then(function (dat) { return _this.currDate = dat; });
+                    this.currDate = this._dateService.getCurrentDate();
                 };
                 MonthInYear.prototype.openYears = function () {
                     this._router.navigateByUrl('/(years)');

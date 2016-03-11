@@ -25,7 +25,7 @@ System.register(['angular2/core'], function(exports_1) {
                         var date = new Date();
                         this.setDateToCurrDate(date);
                     }
-                    return Promise.resolve(this.currDate);
+                    return this.currDate;
                 };
                 DateService.prototype.setDateToCurrDate = function (date) {
                     this.currDate.date = date.getDate();

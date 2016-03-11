@@ -12,7 +12,7 @@ export class DateService {
         let date = new Date();
         this.setDateToCurrDate(date);
       }
-      return Promise.resolve(this.currDate);
+      return this.currDate;
   }
 
   setDateToCurrDate(date) {

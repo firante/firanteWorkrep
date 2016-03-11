@@ -21,12 +21,10 @@ export class Years implements OnInit {
   currDate : CurrentDate = {date: 0, month: 0, year: 0};
 
   ngOnInit () {
-    this._dateService.getCurrentDate().then(dat => {
-      for(var i = 0; i < 25; i++) {
-        this.years.push(+dat.year - 12 + i);
-      }
-    });
-    this._dateService.getCurrentDate().then(dat => this.currDate = dat);
+    this.currDate = this._dateService.getCurrentDate();
+    for(var i = 0; i < 25; i++) {
+      this.years.push(this.currDate.year - 12 + i);
+    }
   }
 
   changeYear (year) {
