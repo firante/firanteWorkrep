@@ -1,4 +1,5 @@
 import { Component, OnInit } from 'angular2/core';
+import { DayInterface} from '../interface/day.interface';
 import { DaysInMonth } from './days.in.month';
 import { MonthInYear } from './month.in.year';
 import { Years } from './years';
@@ -11,7 +12,7 @@ import { Router, AuxRoute } from 'angular2/router';
   selector: 'calendar-app',
   templateUrl: 'calendar/suportHtml/first.calendar.html',
   styleUrls: ['calendar/css/first.calendar.css'],
-  directives: [ROUTER_DIRECTIVES, RouterLink, RouterOutlet],
+  directives: [ROUTER_DIRECTIVES, RouterLink, RouterOutlet, DaysInMonth, MonthInYear, Years],
   providers: [
     ROUTER_PROVIDERS,
     DateService,
@@ -19,40 +20,31 @@ import { Router, AuxRoute } from 'angular2/router';
   ]
 })
 
-@RouteConfig([
-  {
-    path: '/',
-    aux: '/days',
-    component: DaysInMonth,
-    as: 'Days'
-  },
-  {
-    path: '/',
-    aux: '/months',
-    component: MonthInYear,
-    as: 'DaysMonths'
-  },
-  {
-    path: '/',
-    aux: '/years',
-    component: Years,
-    as: 'DaysMonthYears'
-  }
-])
-
 export class FirstComponent implements OnInit {
+
 currDate : CurrentDate = {date: 0, month: 0, year: 0};
 constructor(
     private _router: Router,
     private _dateService: DateService
   ) {}
 
+  daysInMonth : DayInterface[][] = [
+                                      [{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null}],
+                                      [{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null}],
+                                      [{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null}],
+                                      [{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null}],
+                                      [{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null}],
+                                      [{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null}]
+                                    ];
+
+
   ngOnInit () {
     this.currDate = this._dateService.getCurrentDate();
+    this._dateService.getInitDayInterface(this.currDate).then(daysIn => this.daysInMonth = daysIn);
   }
 
   openCall() {
-    this._router.navigateByUrl('/(days)');
+    document.getElementById("days").style.display = "block";
   }
   changeCurrDate(date) {
     let dat = date.split('-');

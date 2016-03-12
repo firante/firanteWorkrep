@@ -6,13 +6,13 @@
   <br />
   <div class='w100'>
     <div class='w33'>
-      <router-outlet name='days'></router-outlet>
+      <dais-month id="days" [daysInMonth]="daysInMonth"> </dais-month>
     </div>
     <div class='w33'>
-      <router-outlet name='months'></router-outlet>
+      <month-year id="month"> </month-year>
     </div>
     <div class='w33'>
-      <router-outlet name='years'></router-outlet>
+      <years id="years"> </years>
     </div>
   </div>
 </div>

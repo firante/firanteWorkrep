@@ -26,54 +26,21 @@ System.register(['angular2/core', '../servises/date.service', 'angular2/router']
                 function DaysInMonth(_router, _dateService) {
                     this._router = _router;
                     this._dateService = _dateService;
-                    this.daysInMonth = [
-                        [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }],
-                        [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }],
-                        [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }],
-                        [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }],
-                        [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }],
-                        [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }]
-                    ];
                     this.currDate = { date: 0, month: 0, year: 0 };
-                    this.oneDay = { day: 0, active: null };
                 }
                 DaysInMonth.prototype.ngOnInit = function () {
                     this.currDate = this._dateService.getCurrentDate();
-                    this.initDayInterface();
-                };
-                DaysInMonth.prototype.initDayInterface = function () {
-                    var date = new Date(+this.currDate.year, +this.currDate.month - 1, 1);
-                    if (+date.getDay() === 1) {
-                        date = new Date(+date.getFullYear(), +date.getMonth(), +date.getDate() - 7);
-                        for (var i = 0; i <= 5; i += 1) {
-                            for (var j = 0; j <= 6; j += 1) {
-                                this.oneDay.day = +date.getDate();
-                                this.oneDay.active = (+this.currDate.month == date.getMonth()) ? true : false;
-                                this.daysInMonth[i][j].day = this.oneDay.day;
-                                this.daysInMonth[i][j].active = this.oneDay.active;
-                                date = new Date(+date.getFullYear(), +date.getMonth(), +date.getDate() + 1);
-                            }
-                        }
-                    }
-                    else {
-                        date = new Date(+date.getFullYear(), +date.getMonth(), +date.getDate() - (date.getDay() - 1));
-                        for (var i = 0; i <= 5; i += 1) {
-                            for (var j = 0; j <= 6; j += 1) {
-                                this.oneDay.day = +date.getDate();
-                                this.oneDay.active = (+this.currDate.month == date.getMonth()) ? true : false;
-                                this.daysInMonth[i][j].day = this.oneDay.day;
-                                this.daysInMonth[i][j].active = this.oneDay.active;
-                                date = new Date(+date.getFullYear(), +date.getMonth(), +date.getDate() + 1);
-                            }
-                        }
-                    }
                 };
                 DaysInMonth.prototype.openMonth = function () {
-                    this._router.navigateByUrl('/(months)');
+                    document.getElementById("month").style.display = "block";
                 };
                 DaysInMonth.prototype.chandeDate = function (date) {
                     this.currDate.date = date;
                 };
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Array)
+                ], DaysInMonth.prototype, "daysInMonth", void 0);
                 DaysInMonth = __decorate([
                     core_1.Component({
                         selector: 'dais-month',

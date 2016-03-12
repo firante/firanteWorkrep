@@ -7,3 +7,15 @@
   max-width: 33%;
   float: left;
 }
+
+#days {
+  display: none;
+}
+
+#month {
+  display: none;
+}
+
+#years {
+  display: none;
+}

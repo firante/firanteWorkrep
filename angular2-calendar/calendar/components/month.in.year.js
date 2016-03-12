@@ -32,15 +32,14 @@ System.register(['angular2/core', 'angular2/router', '../servises/date.service']
                     this.currDate = this._dateService.getCurrentDate();
                 };
                 MonthInYear.prototype.openYears = function () {
-                    this._router.navigateByUrl('/(years)');
+                    document.getElementById("years").style.display = "block";
                 };
                 MonthInYear.prototype.changeMonth = function (month) {
                     this.currDate.month = month;
-                    this.currDate.date = 11;
                 };
                 MonthInYear = __decorate([
                     core_1.Component({
-                        selector: 'dais-month',
+                        selector: 'month-year',
                         templateUrl: 'calendar/suportHtml/month.in.year.html',
                         styleUrls: ['calendar/css/month.in.year.css'],
                         directives: []

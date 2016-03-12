@@ -37,12 +37,22 @@ System.register(['angular2/core', './days.in.month', './month.in.year', './years
                     this._router = _router;
                     this._dateService = _dateService;
                     this.currDate = { date: 0, month: 0, year: 0 };
+                    this.daysInMonth = [
+                        [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }],
+                        [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }],
+                        [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }],
+                        [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }],
+                        [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }],
+                        [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }]
+                    ];
                 }
                 FirstComponent.prototype.ngOnInit = function () {
+                    var _this = this;
                     this.currDate = this._dateService.getCurrentDate();
+                    this._dateService.getInitDayInterface(this.currDate).then(function (daysIn) { return _this.daysInMonth = daysIn; });
                 };
                 FirstComponent.prototype.openCall = function () {
-                    this._router.navigateByUrl('/(days)');
+                    document.getElementById("days").style.display = "block";
                 };
                 FirstComponent.prototype.changeCurrDate = function (date) {
                     var dat = date.split('-');
@@ -55,33 +65,13 @@ System.register(['angular2/core', './days.in.month', './month.in.year', './years
                         selector: 'calendar-app',
                         templateUrl: 'calendar/suportHtml/first.calendar.html',
                         styleUrls: ['calendar/css/first.calendar.css'],
-                        directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterLink, router_1.RouterOutlet],
+                        directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterLink, router_1.RouterOutlet, days_in_month_1.DaysInMonth, month_in_year_1.MonthInYear, years_1.Years],
                         providers: [
                             router_1.ROUTER_PROVIDERS,
                             date_service_1.DateService,
                             days_in_month_1.DaysInMonth
                         ]
-                    }),
-                    router_1.RouteConfig([
-                        {
-                            path: '/',
-                            aux: '/days',
-                            component: days_in_month_1.DaysInMonth,
-                            as: 'Days'
-                        },
-                        {
-                            path: '/',
-                            aux: '/months',
-                            component: month_in_year_1.MonthInYear,
-                            as: 'DaysMonths'
-                        },
-                        {
-                            path: '/',
-                            aux: '/years',
-                            component: years_1.Years,
-                            as: 'DaysMonthYears'
-                        }
-                    ]), 
+                    }), 
                     __metadata('design:paramtypes', [router_2.Router, date_service_1.DateService])
                 ], FirstComponent);
                 return FirstComponent;

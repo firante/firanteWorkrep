@@ -19,6 +19,14 @@ System.register(['angular2/core'], function(exports_1) {
             DateService = (function () {
                 function DateService() {
                     this.currDate = { date: 0, month: 0, year: 0 };
+                    this.daysInMonth = [
+                        [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }],
+                        [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }],
+                        [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }],
+                        [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }],
+                        [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }],
+                        [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }]
+                    ];
                 }
                 DateService.prototype.getCurrentDate = function () {
                     if (this.currDate.date === 0 && this.currDate.month === 0 && this.currDate.year === 0) {
@@ -36,6 +44,30 @@ System.register(['angular2/core'], function(exports_1) {
                     this.currDate.date = curr.date;
                     this.currDate.month = curr.month;
                     this.currDate.year = curr.year;
+                };
+                DateService.prototype.getInitDayInterface = function (currDate) {
+                    var date = new Date(currDate.year, currDate.month - 1, 1);
+                    if (+date.getDay() === 1) {
+                        date = new Date(+date.getFullYear(), +date.getMonth(), +date.getDate() - 7);
+                        for (var i = 0; i <= 5; i += 1) {
+                            for (var j = 0; j <= 6; j += 1) {
+                                this.daysInMonth[i][j].day = +date.getDate();
+                                this.daysInMonth[i][j].active = (currDate.month === date.getMonth()) ? true : false;
+                                date = new Date(+date.getFullYear(), +date.getMonth(), +date.getDate() + 1);
+                            }
+                        }
+                    }
+                    else {
+                        date = new Date(+date.getFullYear(), +date.getMonth(), +date.getDate() - (date.getDay() - 1));
+                        for (var i = 0; i <= 5; i += 1) {
+                            for (var j = 0; j <= 6; j += 1) {
+                                this.daysInMonth[i][j].day = +date.getDate();
+                                this.daysInMonth[i][j].active = (currDate.month === date.getMonth()) ? true : false;
+                                date = new Date(+date.getFullYear(), +date.getMonth(), +date.getDate() + 1);
+                            }
+                        }
+                    }
+                    return Promise.resolve(this.daysInMonth);
                 };
                 DateService = __decorate([
                     core_1.Injectable(), 

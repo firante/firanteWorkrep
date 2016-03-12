@@ -5,7 +5,7 @@ import { CurrentDate } from '../interface/current.date.interface';
 import { DateService } from '../servises/date.service';
 
 @Component ({
-  selector: 'dais-month',
+  selector: 'month-year',
   templateUrl: 'calendar/suportHtml/month.in.year.html',
   styleUrls: ['calendar/css/month.in.year.css'],
   directives: []
@@ -24,11 +24,10 @@ export class MonthInYear implements OnInit  {
   }
 
   openYears() {
-    this._router.navigateByUrl('/(years)');
+    document.getElementById("years").style.display = "block";
   }
 
   changeMonth(month) {
     this.currDate.month = month;
-    this.currDate.date = 11;
   }
 }
