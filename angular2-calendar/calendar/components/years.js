@@ -26,18 +26,19 @@ System.register(['angular2/core', 'angular2/router', '../servises/date.service']
                 function Years(_router, _dateService) {
                     this._router = _router;
                     this._dateService = _dateService;
-                    this.years = [];
                     this.currDate = { date: 0, month: 0, year: 0 };
                 }
                 Years.prototype.ngOnInit = function () {
                     this.currDate = this._dateService.getCurrentDate();
-                    for (var i = 0; i < 25; i++) {
-                        this.years.push(this.currDate.year - 12 + i);
-                    }
                 };
                 Years.prototype.changeYear = function (year) {
                     this.currDate.year = +year;
+                    this._dateService.setDayInterface(this.currDate);
                 };
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Array)
+                ], Years.prototype, "years", void 0);
                 Years = __decorate([
                     core_1.Component({
                         selector: 'years',

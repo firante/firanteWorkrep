@@ -37,3 +37,12 @@ span {
   display: table-cell;
   vertical-align: middle;
 }
+
+
+span.thisMonth {
+  color: black;
+}
+
+span.otherMonth {
+  color: gray;
+}

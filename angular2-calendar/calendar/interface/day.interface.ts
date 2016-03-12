@@ -1,4 +1,4 @@
 export interface DayInterface {
   day: number;
-  active: boolean;
+  active: string;
 }

@@ -22,11 +22,12 @@ import { Router, AuxRoute } from 'angular2/router';
 
 export class FirstComponent implements OnInit {
 
-currDate : CurrentDate = {date: 0, month: 0, year: 0};
 constructor(
     private _router: Router,
     private _dateService: DateService
   ) {}
+
+  currDate : CurrentDate = {date: 0, month: 0, year: 0};
 
   daysInMonth : DayInterface[][] = [
                                       [{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null}],
@@ -37,19 +38,32 @@ constructor(
                                       [{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null}]
                                     ];
 
+  years: number[] = [];
 
   ngOnInit () {
     this.currDate = this._dateService.getCurrentDate();
+    for(var i = 0; i < 25; i++) {
+      this.years.push(this.currDate.year - 12 + i);
+    }
     this._dateService.getInitDayInterface(this.currDate).then(daysIn => this.daysInMonth = daysIn);
   }
 
   openCall() {
     document.getElementById("days").style.display = "block";
   }
+
   changeCurrDate(date) {
     let dat = date.split('-');
+    alert(1);
+    var month = this.currDate.month;
     this.currDate.date = dat[0];
     this.currDate.month = dat[1];
     this.currDate.year = dat[2];
+    alert(this.currDate.month +" "+  month);
+    if(this.currDate.month !== month) {
+      this._dateService.getInitDayInterface(this.currDate).then(daysIn => this.daysInMonth = daysIn);
+    }
+
+
   }
 }

@@ -36,9 +36,9 @@ System.register(['angular2/core'], function(exports_1) {
                     return this.currDate;
                 };
                 DateService.prototype.setDateToCurrDate = function (date) {
-                    this.currDate.date = date.getDate();
+                    this.currDate.date = +date.getDate();
                     this.currDate.month = +date.getMonth() + 1;
-                    this.currDate.year = date.getFullYear();
+                    this.currDate.year = +date.getFullYear();
                 };
                 DateService.prototype.changeCurrDate = function (curr) {
                     this.currDate.date = curr.date;
@@ -52,22 +52,25 @@ System.register(['angular2/core'], function(exports_1) {
                         for (var i = 0; i <= 5; i += 1) {
                             for (var j = 0; j <= 6; j += 1) {
                                 this.daysInMonth[i][j].day = +date.getDate();
-                                this.daysInMonth[i][j].active = (currDate.month === date.getMonth()) ? true : false;
+                                this.daysInMonth[i][j].active = (currDate.month - 1 === (+date.getMonth())) ? "thisMonth" : "otherMonth";
                                 date = new Date(+date.getFullYear(), +date.getMonth(), +date.getDate() + 1);
                             }
                         }
                     }
                     else {
-                        date = new Date(+date.getFullYear(), +date.getMonth(), +date.getDate() - (date.getDay() - 1));
+                        date = new Date(+date.getFullYear(), +date.getMonth(), +date.getDate() - ((date.getDay() !== 0) ? date.getDay() - 1 : 6));
                         for (var i = 0; i <= 5; i += 1) {
                             for (var j = 0; j <= 6; j += 1) {
                                 this.daysInMonth[i][j].day = +date.getDate();
-                                this.daysInMonth[i][j].active = (currDate.month === date.getMonth()) ? true : false;
+                                this.daysInMonth[i][j].active = (currDate.month - 1 === (+date.getMonth())) ? "thisMonth" : "otherMonth";
                                 date = new Date(+date.getFullYear(), +date.getMonth(), +date.getDate() + 1);
                             }
                         }
                     }
                     return Promise.resolve(this.daysInMonth);
+                };
+                DateService.prototype.setDayInterface = function (currDate) {
+                    this.getInitDayInterface(currDate);
                 };
                 DateService = __decorate([
                     core_1.Injectable(), 

@@ -34,8 +34,29 @@ System.register(['angular2/core', '../servises/date.service', 'angular2/router']
                 DaysInMonth.prototype.openMonth = function () {
                     document.getElementById("month").style.display = "block";
                 };
-                DaysInMonth.prototype.chandeDate = function (date) {
+                DaysInMonth.prototype.chandeDate = function (date, active) {
                     this.currDate.date = date;
+                    if (active !== "thisMonth") {
+                        if (parseInt(date, 10) > 15) {
+                            if (+this.currDate.month !== 1) {
+                                this.currDate.month -= 1;
+                            }
+                            else {
+                                this.currDate.month = 12;
+                                this.currDate.year -= 1;
+                            }
+                        }
+                        else {
+                            if (+this.currDate.month !== 12) {
+                                this.currDate.month += 1;
+                            }
+                            else {
+                                this.currDate.month = 1;
+                                this.currDate.year += 1;
+                            }
+                        }
+                        this._dateService.setDayInterface(this.currDate);
+                    }
                 };
                 __decorate([
                     core_1.Input(), 
