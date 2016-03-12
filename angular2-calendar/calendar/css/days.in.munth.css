@@ -9,21 +9,18 @@ div.block {
 }
 
 div.collumn {
-  width: 14.28%;
+  width: 23px;
   float: left;
   height: 100%;
-  background: rgba(255, 0, 0, 1);
   display: table;
   cursor: pointer;
+  margin-left: 1px
 }
 
 div.collumn:hover {
   background: rgba(255, 0, 0, 0.5);
 }
 
-div.collumn:focus {
-  background: rgba(255, 0, 0, 0.5);
-}
 
 div.days {
   width: 100%;

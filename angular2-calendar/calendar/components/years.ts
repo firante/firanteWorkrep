@@ -29,5 +29,6 @@ export class Years implements OnInit {
   changeYear (year) {
     this.currDate.year = +year;
     this._dateService.setDayInterface(this.currDate);
+    this._dateService.setYears(this.currDate);
   }
 }

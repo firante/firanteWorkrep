@@ -56,6 +56,7 @@ System.register(['angular2/core', '../servises/date.service', 'angular2/router']
                             }
                         }
                         this._dateService.setDayInterface(this.currDate);
+                        this._dateService.setYears(this.currDate);
                     }
                 };
                 __decorate([

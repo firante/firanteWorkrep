@@ -8,7 +8,6 @@ div.year {
   width: 20%;
   float: left;
   height: 30px;
-  background: rgba(255, 0, 0, 1);
   display: table;
   cursor: pointer;
 }

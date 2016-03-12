@@ -52,6 +52,7 @@ export class DaysInMonth implements OnInit {
         }
       }
       this._dateService.setDayInterface(this.currDate);
+      this._dateService.setYears(this.currDate);
     }
   }
 }

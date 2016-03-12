@@ -6,6 +6,7 @@ import {DayInterface} from '../interface/day.interface';
 
 export class DateService {
 
+  years: number[] = [];
   currDate: CurrentDate = {date: 0, month: 0, year: 0};
   daysInMonth : DayInterface[][] = [
                                       [{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null},{day: 0, active: null}],
@@ -64,5 +65,16 @@ export class DateService {
 
   setDayInterface(currDate) {
     this.getInitDayInterface(currDate);
+  }
+
+  getYears(currDate) {
+    for(var i = 0; i < 25; i++) {
+      this.years[i] = currDate.year - 12 + i;
+    }
+    return Promise.resolve(this.years);
+  }
+
+  setYears(currDate) {
+    this.getYears(currDate);
   }
 }

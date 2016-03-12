@@ -12,11 +12,11 @@ import { Router, AuxRoute } from 'angular2/router';
   selector: 'calendar-app',
   templateUrl: 'calendar/suportHtml/first.calendar.html',
   styleUrls: ['calendar/css/first.calendar.css'],
-  directives: [ROUTER_DIRECTIVES, RouterLink, RouterOutlet, DaysInMonth, MonthInYear, Years],
+  directives: [DaysInMonth, MonthInYear, Years],
   providers: [
-    ROUTER_PROVIDERS,
     DateService,
-    DaysInMonth
+    DaysInMonth,
+    Years
   ]
 })
 
@@ -42,28 +42,11 @@ constructor(
 
   ngOnInit () {
     this.currDate = this._dateService.getCurrentDate();
-    for(var i = 0; i < 25; i++) {
-      this.years.push(this.currDate.year - 12 + i);
-    }
     this._dateService.getInitDayInterface(this.currDate).then(daysIn => this.daysInMonth = daysIn);
+    this._dateService.getYears(this.currDate).then(year => this.years = year);
   }
 
   openCall() {
     document.getElementById("days").style.display = "block";
-  }
-
-  changeCurrDate(date) {
-    let dat = date.split('-');
-    alert(1);
-    var month = this.currDate.month;
-    this.currDate.date = dat[0];
-    this.currDate.month = dat[1];
-    this.currDate.year = dat[2];
-    alert(this.currDate.month +" "+  month);
-    if(this.currDate.month !== month) {
-      this._dateService.getInitDayInterface(this.currDate).then(daysIn => this.daysInMonth = daysIn);
-    }
-
-
   }
 }

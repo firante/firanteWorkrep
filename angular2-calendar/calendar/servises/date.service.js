@@ -18,6 +18,7 @@ System.register(['angular2/core'], function(exports_1) {
         execute: function() {
             DateService = (function () {
                 function DateService() {
+                    this.years = [];
                     this.currDate = { date: 0, month: 0, year: 0 };
                     this.daysInMonth = [
                         [{ day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }, { day: 0, active: null }],
@@ -71,6 +72,15 @@ System.register(['angular2/core'], function(exports_1) {
                 };
                 DateService.prototype.setDayInterface = function (currDate) {
                     this.getInitDayInterface(currDate);
+                };
+                DateService.prototype.getYears = function (currDate) {
+                    for (var i = 0; i < 25; i++) {
+                        this.years[i] = currDate.year - 12 + i;
+                    }
+                    return Promise.resolve(this.years);
+                };
+                DateService.prototype.setYears = function (currDate) {
+                    this.getYears(currDate);
                 };
                 DateService = __decorate([
                     core_1.Injectable(), 

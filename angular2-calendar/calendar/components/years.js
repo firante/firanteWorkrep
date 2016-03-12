@@ -34,6 +34,7 @@ System.register(['angular2/core', 'angular2/router', '../servises/date.service']
                 Years.prototype.changeYear = function (year) {
                     this.currDate.year = +year;
                     this._dateService.setDayInterface(this.currDate);
+                    this._dateService.setYears(this.currDate);
                 };
                 __decorate([
                     core_1.Input(), 
