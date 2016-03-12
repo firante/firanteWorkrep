@@ -21,6 +21,9 @@ div.collumn:hover {
   background: rgba(255, 0, 0, 0.5);
 }
 
+div.collumn:focus {
+  background: rgba(255, 0, 0, 0.5);
+}
 
 div.days {
   width: 100%;
@@ -34,7 +37,6 @@ span {
   display: table-cell;
   vertical-align: middle;
 }
-
 
 span.thisMonth {
   color: black;

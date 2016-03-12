@@ -26,9 +26,19 @@ export class Years implements OnInit {
 
   }
 
-  changeYear (year) {
+  changeYear (year, id) {
+
+
     this.currDate.year = +year;
     this._dateService.setDayInterface(this.currDate);
     this._dateService.setYears(this.currDate);
+    var el = document.getElementById("years");
+    var divs = el.getElementsByTagName('div');
+    for(var i = 0, last = divs.length; i < last; i += 1) {
+      divs[i].className = "year";
+    }
+
+    document.getElementById(id).className = "yearFocus";
+    el.className ="years";
   }
 }

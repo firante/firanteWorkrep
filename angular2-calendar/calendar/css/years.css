@@ -11,6 +11,16 @@ div.year {
   display: table;
   cursor: pointer;
 }
+
+div.yearFocus {
+  width: 20%;
+  float: left;
+  height: 30px;
+  display: table;
+  cursor: pointer;
+  background: rgba(255, 0, 0, 0.4);
+}
+
 span.mid {
   vertical-align: middle;
   display: table-cell;

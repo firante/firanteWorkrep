@@ -20,6 +20,10 @@ div.collumn:hover {
   background: rgba(0, 255, 0, 0.5);
 }
 
+div.collumn:focus {
+  background: rgba(0, 255, 0, 0.5);
+}
+
 span {
   display: table-cell;;
   vertical-align: middle;

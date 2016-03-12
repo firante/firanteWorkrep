@@ -31,10 +31,17 @@ System.register(['angular2/core', 'angular2/router', '../servises/date.service']
                 Years.prototype.ngOnInit = function () {
                     this.currDate = this._dateService.getCurrentDate();
                 };
-                Years.prototype.changeYear = function (year) {
+                Years.prototype.changeYear = function (year, id) {
                     this.currDate.year = +year;
                     this._dateService.setDayInterface(this.currDate);
                     this._dateService.setYears(this.currDate);
+                    var el = document.getElementById("years");
+                    var divs = el.getElementsByTagName('div');
+                    for (var i = 0, last = divs.length; i < last; i += 1) {
+                        divs[i].className = "year";
+                    }
+                    document.getElementById(id).className = "yearFocus";
+                    el.className = "years";
                 };
                 __decorate([
                     core_1.Input(), 

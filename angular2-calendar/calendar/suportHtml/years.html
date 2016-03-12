@@ -1,7 +1,9 @@
-<div class=years>
+<div class=years id="years">
   <div class='year'
-    *ngFor='#year of years'>
-      <span #yearss class='mid' (click)="changeYear(yearss.innerText)">
+    tabindex="0"
+    *ngFor='#year of years'
+    id={{year}}>
+      <span #yearss class='mid' (click)="changeYear(yearss.innerText, year)">
         {{year}}
       </span>
   </div>

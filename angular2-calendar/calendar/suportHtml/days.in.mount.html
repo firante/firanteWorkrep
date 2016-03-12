@@ -3,6 +3,7 @@
     *ngFor='#week of daysInMonth'>
     <div
       class='collumn'
+      tabindex="0"
       *ngFor='#days of week'>
         <span #day name='day' class={{days.active}} (click)="chandeDate(day.innerText, days.active)">
           {{days.day}}
