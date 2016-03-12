@@ -37,6 +37,7 @@ System.register(['angular2/core', 'angular2/router', '../servises/date.service']
                 };
                 MonthInYear.prototype.changeMonth = function (month) {
                     this.currDate.month = month;
+                    this.currDate.date = 11;
                 };
                 MonthInYear = __decorate([
                     core_1.Component({
