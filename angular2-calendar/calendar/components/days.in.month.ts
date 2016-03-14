@@ -45,14 +45,16 @@ export class DaysInMonth implements OnInit {
         }
       } else {
         if(+this.currDate.month !== 12) {
-          this.currDate.month += 1;
+          this.currDate.month ++;
         } else {
           this.currDate.month = 1;
-          this.currDate.year += 1;
+          this.currDate.year ++;
         }
       }
       this._dateService.setDayInterface(this.currDate);
       this._dateService.setYears(this.currDate);
+
     }
+
   }
 }

@@ -10,15 +10,7 @@ div.year {
   height: 30px;
   display: table;
   cursor: pointer;
-}
-
-div.yearFocus {
-  width: 20%;
-  float: left;
-  height: 30px;
-  display: table;
-  cursor: pointer;
-  background: rgba(255, 0, 0, 0.4);
+  background:-webkit-gradient(linear, 13% 30%, 8% 58%, from(#5A5B5B), to(#574E3A));
 }
 
 span.mid {
@@ -27,5 +19,5 @@ span.mid {
 }
 
 div.year:hover {
-  background: rgba(255, 0, 0, 0.4);
+  background:-webkit-gradient(linear, 11% 61%, 10% 21%, from(#3E323A), to(#312B2B));
 }

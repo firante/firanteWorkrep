@@ -28,7 +28,8 @@ export class MonthInYear implements OnInit  {
   }
 
   changeMonth(month) {
-    this.currDate.month = month;
+    this.currDate.month = +month;
     this._dateService.setDayInterface(this.currDate);
+
   }
 }

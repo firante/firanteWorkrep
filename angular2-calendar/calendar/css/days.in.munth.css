@@ -14,15 +14,13 @@ div.collumn {
   height: 100%;
   display: table;
   cursor: pointer;
-  margin-left: 1px
+
+  background:-webkit-gradient(linear, 13% 30%, 8% 58%, from(#5A5B5B), to(#574E3A));
+
 }
 
 div.collumn:hover {
-  background: rgba(255, 0, 0, 0.5);
-}
-
-div.collumn:focus {
-  background: rgba(255, 0, 0, 0.5);
+  background:-webkit-gradient(linear, 11% 61%, 10% 21%, from(#3E323A), to(#312B2B));
 }
 
 div.days {

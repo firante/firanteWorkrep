@@ -3,7 +3,7 @@
     tabindex="0"
     *ngFor='#year of years'
     id={{year}}>
-      <span #yearss class='mid' (click)="changeYear(yearss.innerText, year)">
+      <span #yearss class='mid' (click)="changeYear(yearss.innerText)">
         {{year}}
       </span>
   </div>
